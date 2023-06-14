@@ -48,18 +48,16 @@ import java.util.LinkedList;
     }
 
     public void mergeSort(Record[] arr, int p, int r) {
-        LinkedList<Record[]> list = new LinkedList<Record[]>();
-        list.add(new Record[0]);
+        //LinkedList<Record[]> list = new LinkedList<Record[]>();
+        //list.add(new Record[0]);
         int arrayHalf = arr.length/2, leftIndex=0, rightIndex=0, mergeIndex=0;
         if((arrayHalf*2)<arr.length) arrayHalf++; //if odd
 
         Record[] leftSide = new Record[arrayHalf];
         Record[] rightSide = new Record[arr.length/2];
 
-        for(int i=0; i<arrayHalf; i++)
-            leftSide[i] = arr[i];
-        for(int j=arrayHalf; j<arr.length; j++)
-            rightSide[j-arrayHalf] = arr[j];
+	System.arraycopy(arr,0,leftSide,0,arrayHalf);
+	System.arraycopy(arr,arrayHalf,rightSide,0,arr.length/2);
         
         if(arr.length > 2) 
         {   mergeSort(leftSide,0,0);
@@ -84,8 +82,8 @@ import java.util.LinkedList;
         if(rightIndex == arr.length/2)
             System.arraycopy(leftSide, leftIndex, arr, mergeIndex, leftSide.length-leftIndex);
             
-        list.set(0,arr);
-        arr = list.get(0);
+        //list.set(0,arr);
+        //arr = list.get(0);
         
         this.recordList = arr;
     }

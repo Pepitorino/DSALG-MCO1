@@ -12,14 +12,15 @@ public class Main {
 			SortingAlgorithms sorter = new SortingAlgorithms();
 			
 			File dir = new File("data");
-			File file = new File("insertioncheck.txt");
 
 			String contents[] = dir.list();
 			for(int i=0;i<contents.length;i++)
 			{
+				String filename = String.format("%scheck.txt", contents[i]);
+				File file = new File("tests/"+filename);
 				Record[] arr = files.readFile(("data/"+contents[i]));
 				long startTime = System.currentTimeMillis();
-				sorter.selectionSort(arr, arr.length);
+				sorter.bubbleSort(arr);
 				long endTime = System.currentTimeMillis();
 				try
 				{
@@ -27,7 +28,10 @@ public class Main {
 					PrintStream stream = new PrintStream(fos);
 					System.setOut(stream);
 					System.out.printf("%s\n", contents[i]);
-					System.out.printf("%d-%d\n\n ", endTime, startTime);
+					for(int j=0;j<arr.length;j++)
+					{
+						System.out.printf("%d\n", arr[j].getIdNumber());
+					}
 					stream.flush();
 					stream.close();
 				}
