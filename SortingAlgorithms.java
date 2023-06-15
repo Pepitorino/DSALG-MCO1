@@ -1,7 +1,6 @@
 /* This file contains implementations of sorting algorithms.
  * You are NOT allowed to modify any of the given method headers.
  */
-import java.util.LinkedList;
 
  public class SortingAlgorithms {
 
@@ -29,7 +28,7 @@ import java.util.LinkedList;
     }
 
     public void selectionSort(Record[] arr, int n) {
-        for (int i=0;i<n;i++)
+        for (int i=0;i<n-1;i++)
         {
             int key=i;
             Record temp;
@@ -54,8 +53,8 @@ import java.util.LinkedList;
         Record[] leftSide = new Record[arrayHalf];
         Record[] rightSide = new Record[arr.length/2];
 
-	System.arraycopy(arr,0,leftSide,0,arrayHalf);
-	System.arraycopy(arr,arrayHalf,rightSide,0,arr.length/2);
+	    System.arraycopy(arr,0,leftSide,0,arrayHalf);
+	    System.arraycopy(arr,arrayHalf,rightSide,0,arr.length/2);
         
         if(arr.length > 2) 
         {   mergeSort(leftSide,0,0);
