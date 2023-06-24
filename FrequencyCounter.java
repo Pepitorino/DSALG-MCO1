@@ -4,15 +4,15 @@ import java.io.PrintStream;
 import java.io.IOException;
 import java.io.FileNotFoundException;
 
-public class Main {
+public class FrequencyCounter {
     
 	public static void main(String[] args) {
         // TODO: Use this method to run your experiments.
 			FileReader files = new FileReader();
-			SortingAlgorithms sorter = new SortingAlgorithms();
+			EmpFreqCo sorter = new EmpFreqCo();
 
 			File dir = new File("data");
-			File test = new File("timed.txt");
+			File test = new File("freqcount.txt");
 
 			String contents[] = dir.list();
 			for(int k=1;k<6;k++)
@@ -23,8 +23,9 @@ public class Main {
 					File file = new File("tests/"+filename);
 					Record[] arr = files.readFile(("data/"+contents[i]));
 					long startTime = System.currentTimeMillis();
-					sorter.selectionSort(arr,arr.length);
+					long freq = sorter.selectionSort(arr, arr.length);
 					long endTime = System.currentTimeMillis();
+                    /*
 					try
 					{
 						FileOutputStream fos = new FileOutputStream(file, true);	
@@ -42,13 +43,14 @@ public class Main {
 					{
 						System.out.println("FILENOTFOUND");
 					}
+                    */
 
 					try
 					{
 						FileOutputStream fos = new FileOutputStream(test, true);	
 						PrintStream stream = new PrintStream(fos);
 						System.setOut(stream);
-						System.out.printf("%s Trial#%d TIME:%d-%d\n%d - %d\n", contents[i], k, endTime, startTime, k, endTime-startTime);
+						System.out.printf("%s Trial#%d FREQUENCY COUNT:%d\n", contents[i], k, freq);
 						stream.flush();
 						stream.close();
 					}
