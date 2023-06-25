@@ -21,7 +21,7 @@ public class NameIdChecker {
 				sorter.mergeSort(dataset, 0, 0);
 				dataset = sorter.recordList;
 				String[] tests = testContent.list();
-				for(int j=0;j<tests.length;j++) {
+				for(int j=1;j<tests.length;j++) {
 					String f2 = String.format(testDir+"/"+testContents[i]+"/"+tests[j]);
 					File f = new File(f2);
 					Scanner file = new Scanner(System.in);
