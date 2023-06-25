@@ -25,26 +25,6 @@ public class FrequencyCounter {
 					long startTime = System.currentTimeMillis();
 					long freq = sorter.selectionSort(arr, arr.length);
 					long endTime = System.currentTimeMillis();
-                    /*
-					try
-					{
-						FileOutputStream fos = new FileOutputStream(file, true);	
-						PrintStream stream = new PrintStream(fos);
-						System.setOut(stream);
-						System.out.printf("%s\n", contents[i]);
-						for(int j=0;j<arr.length;j++)
-						{
-							System.out.printf("%d\n", arr[j].getIdNumber());
-						}
-						stream.flush();
-						stream.close();
-					}
-					catch (FileNotFoundException ex)
-					{
-						System.out.println("FILENOTFOUND");
-					}
-                    */
-
 					try
 					{
 						FileOutputStream fos = new FileOutputStream(test, true);	
